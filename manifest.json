@@ -1,5 +1,5 @@
 {
-  "name": "Dev Quiz",
+  "name": "Dev Quiz Pro",
   "short_name": "DevQuiz",
   "id": "com.mahmadsonii.devquiz",
   "description": "Барномаи омӯзишӣ ва санҷиши донишҳои барномасозӣ",
@@ -27,7 +27,7 @@
   ],
   "screenshots": [
     {
-      "src": "screenshot.png",
+      "src": "appstore-images/screenshot.jpg",
       "sizes": "1080x2400",
       "type": "image/jpeg",
       "form_factor": "narrow",
