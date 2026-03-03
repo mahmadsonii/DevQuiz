@@ -17,18 +17,11 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
-    },
-    {
-      "src": "icon.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
     }
   ],
   "screenshots": [
     {
       "src": "Screenshot_20260302_024334.png",
-      "src": "Screenshot_20260303_024334.png",
       "sizes": "1920x1080",
       "type": "image/png",
       "form_factor": "narrow",
