@@ -11,9 +11,8 @@ const urlsToCache = [
   "/js.js",
   "/python.js",
   "/manifest.json",
-  "/icon.png",
-  "/Screenshot_20260302_024334.png",
-  "/Screenshot_20260303_024334.png"
+  "/icon.jpeg",
+  "/Screenshot_20260303_024334.jpeg"
 ];
 
 self.addEventListener("install", event => {
