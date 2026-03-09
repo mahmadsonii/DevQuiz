@@ -1,0 +1,145 @@
+:root {
+    --bg: #0f172a; --card: #1e293b; --accent: #38bdf8;
+    --success: #22c55e; --error: #ef4444; --locked: #475569;
+}
+body { background: var(--bg); color: white; font-family: sans-serif; margin: 0; user-select: none; }
+.container { max-width: 450px; margin: auto; padding: 20px; }
+.hidden { display: none !important; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+button {
+    background: var(--card); color: white; border: 2px solid var(--accent);
+    padding: 20px; border-radius: 15px; font-size: 18px; cursor: pointer; transition: 0.2s;
+}
+button:active { transform: scale(0.95); opacity: 0.8; }
+.locked { border-color: var(--locked); opacity: 0.5; }
+.completed { border-color: var(--success); background: #064e3b; }
+.top-bar { text-align: right; font-weight: bold; font-size: 18px; color: #fbbf24; padding-bottom: 10px; border-bottom: 1px solid #334155; }
+.back-btn { grid-column: span 2; padding: 10px; background: var(--error); border: none; }
+.progress-bar { width: 100%; height: 8px; background: #334155; border-radius: 4px; overflow: hidden; }
+#progress { height: 100%; background: var(--success); width: 0%; transition: 0.3s; }
+.option-btn { grid-column: span 2; text-align: left; padding: 15px; margin-bottom: 5px; }
+.correct { background: var(--success) !important; }
+.wrong { background: var(--error) !important; }
+.coin-rain {
+    position: fixed;
+    top: -50px;
+    font-size: 24px;
+    z-index: 9999;
+    user-select: none;
+    pointer-events: none;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+.reset-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 30px;
+    background: linear-gradient(135deg, #ff4757, #c0392b);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+    overflow: hidden; /* Муҳим: барои он ки дурахшиш аз ҳудуди тугма набарояд */
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+    transition: all 0.3s ease;
+}
+
+/* Эффекти хати дурахшон (Glow Sweep) */
+.reset-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%; /* Дар аввал берун аз тугма дар тарафи чап */
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(
+        to right, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        transparent
+    );
+    transform: skewX(-25deg); /* Хатро каме каҷ мекунем */
+    transition: 1.6s;
+}
+
+/* Вақте мушро болои тугма мебарӣ */
+.reset-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 71, 87, 0.6);
+}
+
+/* Аниматсияи гузаштани хат ҳангоми Hover */
+.reset-btn:hover::before {
+    left: 130%; /* Хати дурахшон ба тарафи рост мегузарад */
+}
+
+.reset-icon {
+    font-size: 15px;
+    transition: transform 0.6s ease;
+}
+
+.reset-btn:hover .reset-icon {
+    transform: rotate(180deg);
+}
+
+.reset-btn:active {
+    transform: scale(0.95);
+}
+/* Класси умумӣ барои ҳамаи тугмаҳое, ки эффект мехоҳанд */
+.level-btn, .lang-btn, .insta-btn, .reset-btn {
+    position: relative;
+    overflow: hidden; /* Муҳим: барои он ки нур аз ҳудуди тугма набарояд */
+    transition: all 0.3s ease;
+}
+
+/* Сохтани хати сафеди дурахшон */
+.level-btn::before, .lang-btn::before, .insta-btn::before, .reset-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%; /* Дар аввал берун аз тугма дар тарафи чап */
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        transparent
+    );
+    transform: skewX(-25deg); /* Хати каҷ */
+    transition: 0.6s;
+    pointer-events: none; /* Халал нарасонидан ба пахши тугма */
+}
+
+/* Аниматсия ҳангоми наздик бурдани муш ё пахш кардан */
+.level-btn:hover::before, .lang-btn:hover::before, .insta-btn:hover::before, .reset-btn:hover::before {
+    left: 150%; /* Хати нур ба тарафи рост мегузарад */
+}
+
+/* Эффект барои телефонҳо (вақте ки ангушт мезани) */
+.level-btn:active::before, .lang-btn:active::before, .insta-btn:active::before, .reset-btn:active::before {
+    left: 150%;
+    transition: 1.4s;
+}
+/* Аниматсияи доимии дурахшиш */
+@keyframes autoGlow {
+    0% { left: -150%; }
+    20% { left: 150%; } /* Дурахшиш мегузарад */
+    100% { left: 150%; } /* Таваққуф то даври навбатӣ */
+}
+
+/* Илова кардани аниматсия ба тугмаи Инстаграм, ки диққатро ҷалб кунад */
+#insta-btn::before {
+    animation: autoGlow 1s infinite;
+}
