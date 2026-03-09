@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DevQuiz Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar"><span id="user-coins">💰 Тангаҳо: 0</span></div>
+
+        <div id="lang-screen" class="screen">
+            <h1>Интихоби Забон</h1>
+            <div class="grid">
+                <button onclick="showLevels('python')">Python</button>
+                <button onclick="showLevels('html5')">HTML5</button>
+                <button onclick="showLevels('css')">CSS3</button>
+                <button onclick="showLevels('js')">JavaScript</button>
+            </div>
+            <div id="promo-section" style="margin-top: 25px; text-align: center;">
+    <button id="insta-btn" class="level-btn" onclick="followInstagram()" 
+        style="background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); 
+               color: white; border: none; padding: 15px; width: 100%; border-radius: 12px; font-weight: bold;">
+   Инстаграм +50 танга
+</button>
+
+        </div>
+        </div>
+
+        <div id="level-screen" class="screen hidden">
+
+
+            <div style="text-align: center; margin-top: 20px;">
+
+</div>
+<button class="reset-btn" onclick="resetLanguageProgress()">
+    <span class="reset-icon">🔄</span> 
+    <span>аз нав </span>
+</button>
+
+
+
+
+            <h2 id="selected-lang-title"></h2>
+            <div id="levels-container" class="grid"></div>
+        </div>
+
+        <div id="quiz-screen" class="screen hidden">
+            <div class="quiz-header">
+                <span id="q-counter">1/10</span>
+                <div class="progress-bar"><div id="progress"></div></div>
+            </div>
+            <h3 id="question-text"></h3>
+            <div id="options" class="grid"></div>
+        </div>
+    </div>
+    <script src="python.js"></script>
+<script src="html5.js"></script>
+<script src="css.js"></script>
+<script src="js.js"></script>
+
+<script src="questions.js"></script>
+<script src="script.js"></script>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js");
+}
+</script>
+</body>
+</html>
